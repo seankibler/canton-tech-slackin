@@ -1,0 +1,13 @@
+version: "3"
+services:
+  slackin:
+    build: .
+    ports:
+      - 3000:3000
+    env_file: slackin.env
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 5
+        window: 10s
